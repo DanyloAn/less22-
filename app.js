@@ -1,27 +1,83 @@
-var newItem = document.createElement("li");
-newItem.textContent = "New List Item";
+//task 1
+// function addListItems() {
+//   var myList = document.getElementById('myList');
 
-document.getElementById("myList").appendChild(newItem);
+//   var itemTexts = ['Елемент 1', 'Елемент 2', 'Елемент 3'];
 
-var firstItem = document.getElementById("myList").firstElementChild;
-firstItem.remove();
+//   for (var i = 0; i < itemTexts.length; i++) {
+//     var listItem = document.createElement('li');
+//     listItem.textContent = itemTexts[i];
+//     myList.appendChild(listItem);
+//   }
+// }
 
-firstItem.style.backgroundColor = "red";
-firstItem.style.position = "relative";
-firstItem.style.left = "50px";
-firstItem.style.top = "20px";
+// function removeFirstElement() {
+//   var myList = document.getElementById('myList');
 
-var rect = firstItem.getBoundingClientRect();
-var coordinates = {
-  top: rect.top + window.scrollY,
-  left: rect.left + window.scrollX,
-};
+//   if (myList.children.length > 0) {
 
-var coordinatesElement = document.createElement("p");
-coordinatesElement.textContent =
-  "Coordinates: Top - " + coordinates.top + ", Left - " + coordinates.left;
-document.body.appendChild(coordinatesElement);
+//     myList.removeChild(myList.children[0]);
+//   }
+// }
 
-firstItem.classList.add("animated");
-firstItem.style.left = "0";
-firstItem.style.top = "0";
+// function addNewItem() {
+//   var myList = document.getElementById('myList');
+
+//   var newItem = document.createElement('li');
+//   newItem.textContent = 'Новий елемент';
+
+//   myList.appendChild(newItem);
+// }
+
+// addListItems();
+
+// removeFirstElement();
+
+// addNewItem();
+
+
+//task 2
+function addListItems() {
+  var myList = document.getElementById('myList');
+  var itemTexts = ['Елемент 1', 'Елемент 2', 'Елемент 3'];
+  for (var i = 0; i < itemTexts.length; i++) {
+    var listItem = document.createElement('li');
+    listItem.textContent = itemTexts[i];
+    myList.appendChild(listItem);
+  }
+}
+
+function removeFirstElement() {
+  var myList = document.getElementById('myList');
+  if (myList.children.length > 0) {
+    var firstElement = myList.children[0];
+
+    firstElement.style.backgroundColor = 'red';
+    firstElement.style.position = 'relative';
+    firstElement.style.left = '50px';
+    firstElement.style.top = '20px';
+
+    var rect = firstElement.getBoundingClientRect();
+    var coordinates = {
+      top: rect.top + window.scrollY,
+      left: rect.left + window.scrollX
+    };
+
+    var coordinatesDisplay = document.createElement('p');
+    coordinatesDisplay.textContent = 'Coordinates: Top=' + coordinates.top + ', Left=' + coordinates.left;
+    document.body.appendChild(coordinatesDisplay);
+
+    firstElement.style.animation = 'animation 2s forwards';
+  }
+}
+
+function addNewItem() {
+  var myList = document.getElementById('myList');
+  var newItem = document.createElement('li');
+  newItem.textContent = 'Новий елемент';
+  myList.appendChild(newItem);
+}
+
+addListItems();
+removeFirstElement();
+addNewItem();

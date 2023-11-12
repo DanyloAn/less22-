@@ -3,16 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @keyframes animation {
+        from {
+          transform: translate(50px, 20px);
+        }
+        to {
+          transform: translate(0, 0);
+        }
+      }
+    </style>
     <title>less_22</title>
   </head>
   <body>
-    <ul id="myList">
-      <li>List item 1</li>
-      <li>List item 2</li>
-      <li>List item 3</li>
-    </ul>
-
+    <ul id="myList"></ul>
     <script src="./app.js"></script>
   </body>
 </html>
